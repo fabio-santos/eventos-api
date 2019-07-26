@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import com.vkncode.evento.model.audit.DateAudit;
 
@@ -31,7 +31,7 @@ public class Event extends DateAudit{
 
 	private Integer peopleLimit;
     
-    private Instant date;
+    private LocalDateTime date;
     
     public Long getId() {
 		return id;
@@ -57,11 +57,11 @@ public class Event extends DateAudit{
 		this.organization = organization;
 	}
 
-	public Instant getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(Instant date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 
