@@ -33,6 +33,14 @@ public class Event extends DateAudit{
     
     private LocalDateTime date;
     
+    public Event() {
+
+	}
+    
+    public Event(Long id) {
+		this.id = id;
+	}
+    
     public Long getId() {
 		return id;
 	}
