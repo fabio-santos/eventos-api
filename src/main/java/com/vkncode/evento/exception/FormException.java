@@ -27,19 +27,25 @@ public class FormException {
 		List<FieldError> formErrors = exception.getBindingResult().getFieldErrors();
 		formErrors.forEach(e -> {
 			String message = messageSource.getMessage(e, LocaleContextHolder.getLocale());
-			errorList.add(new FormError(e.getField(), message));
+			errorList.add(new FormError(e.getObjectName(), e.getField(), message));
 		});
 		
 		return errorList;
 	}
 	
 	public class FormError {
+		public String object;
 		public String field;
 		public String message;
 		
-		public FormError(String field, String message) {
+		public FormError(String object, String field, String message) {
+			this.object = object;
 			this.field = field;
 			this.message = message;
+		}
+		
+		public String getObject() {
+			return object;
 		}
 		
 		public String getField() {
